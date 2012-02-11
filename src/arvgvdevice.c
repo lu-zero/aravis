@@ -382,10 +382,10 @@ arv_gv_device_heartbeat_thread (void *data)
 
 					arv_device_emit_control_lost_signal (ARV_DEVICE (thread_data->gv_device));
 
-					io_data->is_controller = FALSE;
+//					io_data->is_controller = FALSE;
 				}
-			} else
-				io_data->is_controller = FALSE;
+			} // else
+			//	io_data->is_controller = FALSE;
 		}
 	} while (!thread_data->cancel);
 
