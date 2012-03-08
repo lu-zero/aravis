@@ -219,7 +219,7 @@ arv_gv_interface_receive_hello_packet (ArvGvInterface *gv_interface)
 {
 	GPollFD *poll_fd;
 	GSList *iter;
-	char buffer[ARV_GV_INTERFACE_SOCKET_BUFFER_SIZE];
+	char buffer[ARV_GV_INTERFACE_SOCKET_BUFFER_SIZE] __attribute__((may_alias));
 	int count;
 	int i;
 

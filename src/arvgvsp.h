@@ -115,6 +115,8 @@ typedef struct ARAVIS_PACKED_STRUCTURE {
 
 #undef ARAVIS_PACKED_STRUCTURE
 
+#define ARAVIS_MAY_ALIAS __attribute__((may_alias))
+
 /**
  * ArvGvspPacket:
  * @header: common GVSP packet header
@@ -123,10 +125,12 @@ typedef struct ARAVIS_PACKED_STRUCTURE {
  * GVSP packet structure.
  */
 
-typedef struct {
+typedef struct ARAVIS_MAY_ALIAS {
 	ArvGvspHeader header;
 	guint8 data[];
 } ArvGvspPacket;
+
+#undef ARAVIS_MAY_ALIAS
 
 ArvGvspPacket *		arv_gvsp_packet_new_data_leader		(guint16 frame_id, guint32 packet_id,
 								 guint64 timestamp, ArvPixelFormat pixel_format,
